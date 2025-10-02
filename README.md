@@ -292,6 +292,7 @@ We only ask that you keep the license notice and use it to help others! 🛡️
 ## 👨‍💻 Author
 
 **Alan Pham** (vietpham8)
+- Portfolio: [viet.zone](https://viet.zone)
 - GitHub: [github.com/vietpham8](https://github.com/vietpham8)
 - Repository: [old-but-gold-survival](https://github.com/vietpham8/old-but-gold-survival)
 
