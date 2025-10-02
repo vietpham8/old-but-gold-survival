@@ -276,13 +276,24 @@ function exportData() {
 
 ## 📄 License
 
-MIT License - Free to use and modify
+MIT License - **Free to use, modify, and distribute**
+
+This project is open source and available to anyone who needs it. See [LICENSE](LICENSE) for details.
+
+### You can:
+- ✅ Use for personal or commercial purposes
+- ✅ Modify and adapt to your needs
+- ✅ Share with anyone who might benefit
+- ✅ Translate to other languages
+- ✅ Create derivative works
+
+We only ask that you keep the license notice and use it to help others! 🛡️
 
 ## 👨‍💻 Author
 
-**Alan Pham** - Business Launch Portfolio
-- GitHub: [Your GitHub Profile]
-- Portfolio: [Your Portfolio Link]
+**Alan Pham** (vietpham8)
+- GitHub: [github.com/vietpham8](https://github.com/vietpham8)
+- Repository: [old-but-gold-survival](https://github.com/vietpham8/old-but-gold-survival)
 
 ## 🙏 Credits
 
