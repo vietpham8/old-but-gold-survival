@@ -6,6 +6,7 @@ const scenarios = {
     outdoor: { name: "⛰️ Phượt/Rừng", color: "orange", desc: "Lạc trong rừng, thời tiết xấu, động vật hoang dã" },
     financial: { name: "💰 Tài chính", color: "purple", desc: "Hết tiền mặt, không chuyển khoản, mất thẻ/ví" },
     financialEmergency: { name: "🔐 Khẩn cấp Tài chính", color: "emerald", desc: "Người quản lý tài chính mất khả năng, không truy cập tài sản/nợ" },
+    laptopEmergency: { name: "💻 Laptop/Online", color: "violet", desc: "Laptop hỏng/hết pin, mất internet, phải online đúng giờ" },
     flood: { name: "🌊 Lũ lụt", color: "cyan", desc: "Nước dâng nhanh, nhà ngập, di chuyển vùng ngập" },
     storm: { name: "🌪️ Bão/Mưa", color: "indigo", desc: "Bão đổ bộ, mưa nhiều ngày liên tục, gió lớn" },
     landslide: { name: "⛰️ Sạt lở", color: "amber", desc: "Đất đá sạt lở, đường bị chặn, nguy cơ sập" },
@@ -132,6 +133,33 @@ const tools = {
         { name: "Di chúc (nếu có)", priority: "medium", reason: "Phân chia tài sản hợp pháp" },
         { name: "Giấy chứng nhận doanh nghiệp", priority: "medium", reason: "Quản lý tài sản công ty" },
         { name: "Hợp đồng cho vay (bản gốc)", priority: "medium", reason: "Thu hồi nợ" }
+    ],
+
+    laptopEmergency: [
+        { name: "Pin sạc dự phòng laptop (20,000-50,000mAh, PD 65W+)", priority: "critical", reason: "Laptop hết pin giữa đường" },
+        { name: "Sạc laptop + dây cáp dự phòng", priority: "critical", reason: "Sạc chính hỏng/quên" },
+        { name: "SIM 4G/5G data lớn (100GB+)", priority: "critical", reason: "Hotspot khi không có wifi" },
+        { name: "Cloud sync tự động (Google Drive/Dropbox)", priority: "critical", reason: "Backup realtime" },
+        { name: "USB backup 64GB-256GB", priority: "critical", reason: "Backup code/database offline" },
+        { name: "Password manager (Bitwarden/1Password)", priority: "critical", reason: "Truy cập tài khoản mọi nơi" },
+        { name: "Laptop dự phòng (có thể cũ)", priority: "critical", reason: "Máy chính hỏng" },
+        { name: "SIM dự phòng nhà mạng khác", priority: "high", reason: "Mạng chính lỗi" },
+        { name: "External SSD 500GB-1TB", priority: "high", reason: "Backup đầy đủ mỗi tuần" },
+        { name: "SSH keys backup (USB + Cloud mã hóa)", priority: "high", reason: "Truy cập server" },
+        { name: "Balo chống sốc laptop", priority: "high", reason: "Bảo vệ khi di chuyển" },
+        { name: "Adapter đa năng (Universal)", priority: "high", reason: "Sạc nhiều loại laptop" },
+        { name: "USB 4G/5G Modem", priority: "high", reason: "Internet trực tiếp vào laptop" },
+        { name: "Danh sách quán cafe/coworking có wifi", priority: "high", reason: "Nơi làm việc khẩn cấp" },
+        { name: "Remote desktop software (TeamViewer/AnyDesk)", priority: "high", reason: "Truy cập máy từ xa" },
+        { name: "Sạc xe hơi (Car inverter 150W-300W)", priority: "medium", reason: "Sạc trên xe" },
+        { name: "Bàn phím + chuột Bluetooth dự phòng", priority: "medium", reason: "Bàn phím laptop hỏng" },
+        { name: "HDMI cable", priority: "medium", reason: "Dùng TV làm màn hình" },
+        { name: "Túi chống nước", priority: "medium", reason: "Mưa đột ngột" },
+        { name: "Bootable USB với Linux + Dev tools", priority: "medium", reason: "Dùng trên máy bất kỳ" },
+        { name: "VPN dự phòng", priority: "medium", reason: "Wifi công cộng chặn port" },
+        { name: "Lock cable Kensington", priority: "low", reason: "Khóa laptop ở nơi công cộng" },
+        { name: "Webcam cover", priority: "low", reason: "Bảo mật" },
+        { name: "Privacy screen filter", priority: "low", reason: "Chống nhìn trộm" }
     ],
 
     flood: [
@@ -300,6 +328,19 @@ const mindsets = {
         { quote: "Bảo hiểm phải biết người thụ hưởng", meaning: "Tránh mất quyền lợi" }
     ],
 
+    laptopEmergency: [
+        { quote: "Code chưa push = code chưa tồn tại", meaning: "Commit và push liên tục lên Git" },
+        { quote: "Backup 3-2-1: 3 bản, 2 phương tiện, 1 offsite", meaning: "Luôn an toàn dữ liệu" },
+        { quote: "Laptop là công cụ, cloud là tài sản", meaning: "Mọi thứ quan trọng phải lên cloud" },
+        { quote: "Pin còn 20% = Tìm nguồn điện ngay", meaning: "Không để hết pin đột ngột" },
+        { quote: "Luôn có Plan B: laptop dự phòng hoặc cloud workspace", meaning: "Sẵn sàng chuyển đổi" },
+        { quote: "Cứ 30 phút Ctrl+S, cứ 1 giờ commit", meaning: "Thói quen tốt cứu mạng" },
+        { quote: "Laptop mất được, data mất là chết", meaning: "Ưu tiên backup hơn thiết bị" },
+        { quote: "Biết xử lý qua điện thoại = Sống còn", meaning: "SSH mobile là cứu cánh" },
+        { quote: "Wifi công cộng + VPN = An toàn", meaning: "Bảo mật luôn luôn" },
+        { quote: "Mọi config đều version control", meaning: "Git cho cả file config" }
+    ],
+
     flood: [
         { quote: "Nước lũ một tấc, xe hơi bỏ ngay", meaning: "15cm nước có thể cuốn xe" },
         { quote: "Leo cao trước, lo của sau", meaning: "Tính mạng quan trọng hơn tài sản" },
@@ -421,6 +462,23 @@ const skills = {
         { name: "Đọc hợp đồng tài chính cơ bản", priority: "medium", reason: "Hiểu quyền lợi nghĩa vụ" },
         { name: "Tính toán dòng tiền gia đình", priority: "medium", reason: "Lập kế hoạch tài chính" },
         { name: "Phân loại tài sản/nợ ưu tiên", priority: "medium", reason: "Giải quyết đúng thứ tự" }
+    ],
+
+    laptopEmergency: [
+        { name: "Làm việc qua SSH/Terminal", priority: "critical", reason: "Xử lý khi không có GUI" },
+        { name: "Xử lý database qua CLI (psql/mysql/mongosh)", priority: "critical", reason: "Quản lý DB qua terminal" },
+        { name: "Setup môi trường dev nhanh (Docker/script)", priority: "critical", reason: "Khôi phục máy mới trong 30 phút" },
+        { name: "Git commit và push thường xuyên", priority: "critical", reason: "Backup code realtime" },
+        { name: "Sử dụng cloud IDE (Codespaces/Gitpod)", priority: "high", reason: "Code trên browser khi laptop hỏng" },
+        { name: "SSH từ điện thoại (Termius/JuiceSSH)", priority: "high", reason: "Xử lý khẩn cấp qua mobile" },
+        { name: "Backup & restore database", priority: "high", reason: "Sao lưu và khôi phục DB" },
+        { name: "Tìm wifi/điện nhanh trong 10 phút", priority: "high", reason: "Sinh tồn khi di chuyển" },
+        { name: "Sử dụng hotspot 4G/5G", priority: "high", reason: "Internet dự phòng" },
+        { name: "Code review qua điện thoại", priority: "medium", reason: "GitHub/GitLab mobile" },
+        { name: "Troubleshooting laptop cơ bản", priority: "medium", reason: "Sửa lỗi đơn giản" },
+        { name: "Remote desktop (TeamViewer/AnyDesk)", priority: "medium", reason: "Truy cập máy từ xa" },
+        { name: "Quản lý password (Bitwarden/1Password)", priority: "medium", reason: "Truy cập tài khoản mọi nơi" },
+        { name: "Khôi phục từ backup nhanh", priority: "medium", reason: "Restore data trong 1 giờ" }
     ],
 
     flood: [
