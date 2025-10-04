@@ -86,16 +86,22 @@ const tools = {
         { name: "La bàn + Bản đồ địa hình", priority: "critical", reason: "Định hướng" },
         { name: "Dây Paracord (50-100m)", priority: "critical", reason: "Dựng lều, bẫy, leo trèo" },
         { name: "Bộ sơ cứu rừng (rắn cắn, vết thương)", priority: "critical", reason: "Y tế khẩn cấp" },
+        { name: "PLB/Satellite Beacon (Định vị khẩn cấp)", priority: "critical", reason: "Gửi SOS qua vệ tinh khi mắc kẹt" },
+        { name: "Điện thoại vệ tinh/Garmin inReach", priority: "critical", reason: "Liên lạc khi không có sóng di động" },
         { name: "Đèn pin đội đầu + Pin dự phòng", priority: "high", reason: "Chiếu sáng, di chuyển đêm" },
         { name: "Còi khẩn cấp + Gương báo hiệu", priority: "high", reason: "Kêu cứu" },
         { name: "Lều/Màn bạt chống nước", priority: "high", reason: "Trú ẩn" },
         { name: "Túi ngủ/Chăn nhiệt", priority: "high", reason: "Giữ ấm ban đêm" },
         { name: "Rìu cầm tay (Hatchet)", priority: "high", reason: "Chặt củi" },
         { name: "Thực phẩm năng lượng cao", priority: "high", reason: "Dinh dưỡng" },
+        { name: "Băng garo/Tourniquet", priority: "high", reason: "Cầm máu vết thương nặng" },
+        { name: "Dây đánh dấu đường/Ribbon màu", priority: "high", reason: "Đánh dấu lối đi, tránh lạc" },
         { name: "Viên muối kháng sinh/Thuốc chống sốt rét", priority: "medium", reason: "Phòng bệnh" },
         { name: "Lưới câu cá/Dây câu", priority: "medium", reason: "Kiếm thức ăn" },
         { name: "Dao nhỏ đa năng", priority: "medium", reason: "Cắt, gọt, sửa chữa" },
         { name: "Áo mưa/Áo khoác chống nước", priority: "medium", reason: "Giữ khô" },
+        { name: "Pháo sáng/Flare", priority: "medium", reason: "Báo hiệu vị trí ban đêm" },
+        { name: "Bộ y tế nâng cao (kháng sinh, giảm đau mạnh)", priority: "medium", reason: "Xử lý vết thương nghiêm trọng" },
         { name: "Ống nhòm nhỏ", priority: "low", reason: "Quan sát địa hình" },
         { name: "Dây thoát hiểm/Leo núi", priority: "low", reason: "Vượt vách đá, suối" },
         { name: "Bẫy động vật nhỏ", priority: "low", reason: "Săn bắt" }
@@ -307,7 +313,13 @@ const mindsets = {
         { quote: "Ba điều sống còn: Nơi trú, nước, lửa", meaning: "Ưu tiên theo thứ tự này" },
         { quote: "Ở lại và làm cho mình dễ thấy", meaning: "Đừng lang thang khi lạc, tạo tín hiệu" },
         { quote: "Quy tắc 3: 3 phút không khí, 3 giờ không ấm, 3 ngày không nước, 3 tuần không ăn", meaning: "Thứ tự ưu tiên sinh tồn" },
-        { quote: "Luôn cho người thân biết lịch trình", meaning: "Ai đó biết bạn ở đâu là cơ hội được cứu" }
+        { quote: "Luôn cho người thân biết lịch trình", meaning: "Ai đó biết bạn ở đâu là cơ hội được cứu" },
+        { quote: "Không bao giờ đi một mình không báo ai", meaning: "Báo chi tiết: đi đâu, về khi nào, lộ trình ra sao" },
+        { quote: "Điện thoại/GPS là dây cứu sinh - không bỏ quên", meaning: "Thiết bị liên lạc quan trọng hơn dao và lửa" },
+        { quote: "Kỷ luật an toàn quan trọng hơn mạo hiểm", meaning: "Tuân thủ quy tắc, không liều lĩnh để chứng tỏ" },
+        { quote: "Chuẩn bị cho worst case - bị kẹt nhiều ngày", meaning: "Mang đủ nước, thức ăn, y tế cho tình huống xấu nhất" },
+        { quote: "Kiểm soát cảm xúc = Sống còn", meaning: "Bình tĩnh, không hoảng loạn khi mắc kẹt" },
+        { quote: "Ý chí sống là vũ khí mạnh nhất", meaning: "Quyết tâm sinh tồn dù hoàn cảnh khắc nghiệt" }
     ],
 
     financial: [
@@ -434,11 +446,18 @@ const skills = {
         { name: "Dựng trại tạm", priority: "critical", reason: "Trú ẩn" },
         { name: "Định hướng bằng mặt trời/sao", priority: "critical", reason: "Không có la bàn" },
         { name: "Sơ cứu vết thương/rắn cắn", priority: "critical", reason: "Y tế rừng" },
+        { name: "Báo lịch trình chi tiết cho người thân", priority: "critical", reason: "Cho gia đình biết đi đâu, về khi nào, lộ trình cụ thể" },
+        { name: "Sử dụng PLB/Satellite Beacon", priority: "critical", reason: "Kích hoạt tín hiệu SOS vệ tinh khi khẩn cấp" },
+        { name: "Cầm máu vết thương nặng (Tourniquet)", priority: "critical", reason: "Xử lý chấn thương nghiêm trọng" },
         { name: "Tìm thức ăn trong rừng", priority: "high", reason: "Sinh tồn" },
         { name: "Làm bẫy động vật nhỏ", priority: "high", reason: "Săn bắt" },
         { name: "Buộc dây thừng cơ bản", priority: "high", reason: "Leo trèo, cứu hộ" },
+        { name: "Xử lý cắt cụt chi khẩn cấp", priority: "high", reason: "Cắt ở khớp xương khi bị kẹt (trường hợp cực đoan)" },
+        { name: "Uống nước tiểu an toàn", priority: "high", reason: "Lọc qua vải khi cạn kiệt nước" },
+        { name: "Đánh dấu đường đi (Ribbon, cây gãy)", priority: "high", reason: "Tránh lạc sâu trong rừng" },
         { name: "Báo hiệu cứu hộ", priority: "medium", reason: "Thu hút cứu hộ" },
-        { name: "Phân biệt cây độc/ăn được", priority: "medium", reason: "Tránh ngộ độc" }
+        { name: "Phân biệt cây độc/ăn được", priority: "medium", reason: "Tránh ngộ độc" },
+        { name: "Giữ bình tĩnh khi mắc kẹt lâu", priority: "medium", reason: "Kiểm soát cảm xúc, tiết kiệm năng lượng" }
     ],
 
     financial: [
