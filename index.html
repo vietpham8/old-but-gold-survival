@@ -14,6 +14,15 @@
         .priority-medium { color: #ca8a04; }
         .priority-low { color: #6b7280; }
 
+        /* Scenario tabs uniform height */
+        #scenarioTabs button {
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
         /* Print Styles */
         @media print {
             body { background: white !important; }

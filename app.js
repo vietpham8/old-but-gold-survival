@@ -67,13 +67,21 @@ function renderTabs() {
             <div class="text-2xl mb-1">🌍</div>
             <div class="text-xs font-medium">Tất cả</div>
         </button>
-        ${Object.entries(scenarios).map(([key, s]) => `
+        ${Object.entries(scenarios).map(([key, s]) => {
+            // Tách emoji và text
+            const emojiMatch = s.name.match(/^([\p{Emoji}\u200d]+)\s*(.+)$/u);
+            const emoji = emojiMatch ? emojiMatch[1] : '📋';
+            const text = emojiMatch ? emojiMatch[2] : s.name;
+
+            return `
             <button onclick="setScenario('${key}')" class="p-3 rounded-lg border-2 transition-all ${
                 currentScenario === key ? `bg-${s.color}-500 text-white border-${s.color}-500 shadow-md` : 'bg-white text-gray-700 border-gray-300 hover:border-' + s.color + '-300'
             }" title="${s.desc}">
-                <div class="text-xs font-medium">${s.name}</div>
+                <div class="text-2xl mb-1">${emoji}</div>
+                <div class="text-xs font-medium">${text}</div>
             </button>
-        `).join('')}
+            `;
+        }).join('')}
     `;
     document.getElementById('scenarioTabs').innerHTML = tabsHtml;
 }
