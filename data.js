@@ -75,7 +75,7 @@ const tools = {
         { name: "Ống nước dài (10-20m)", priority: "medium", reason: "Lấy nước từ xa" },
         { name: "Giấy vệ sinh (dự trữ)", priority: "medium", reason: "Vệ sinh cá nhân" },
         { name: "Xà phòng/Nước sát khuẩn tay", priority: "medium", reason: "Vệ sinh" },
-        { name: "Ắc quy dự phòng/Máy phát điện mini", priority: "low", reason: "Nguồn điện dự phòng" },
+        { name: "Máy phát điện dự phòng/Ắc quy lớn", priority: "high", reason: "Nguồn điện dự phòng khi cúp điện dài ngày" },
         { name: "Bộ đàm/Máy bộ đàm", priority: "low", reason: "Liên lạc khi mất mạng" }
     ],
 
@@ -108,8 +108,10 @@ const tools = {
     ],
 
     financial: [
+        { name: "Quỹ khẩn cấp 3-6 tháng chi phí", priority: "critical", reason: "Mất việc, thiên tai, khủng hoảng - tiền mặt ngay lập tức" },
         { name: "Tiền mặt nhỏ (20k, 50k, 100k) giấu nhiều nơi", priority: "critical", reason: "Khẩn cấp, không ATM" },
         { name: "Vàng nhỏ (chỉ, nhẫn) dễ bán", priority: "critical", reason: "Tài sản thanh khoản" },
+        { name: "Bảo hiểm thiên tai/nhà cửa", priority: "high", reason: "Bồi thường khi mất mát tài sản do lũ, bão, động đất" },
         { name: "Thẻ tín dụng dự phòng (khác ngân hàng chính)", priority: "high", reason: "Thẻ chính bị khóa" },
         { name: "Danh bạ số điện thoại quan trọng (giấy)", priority: "high", reason: "Mất điện thoại" },
         { name: "Photocopy CMND/CCCD/Passport", priority: "high", reason: "Mất giấy tờ gốc" },
@@ -173,6 +175,7 @@ const tools = {
         { name: "Dây thừng dài (20-50m)", priority: "critical", reason: "Cứu hộ, kéo người" },
         { name: "Đèn pin chống nước", priority: "critical", reason: "Chiếu sáng ban đêm" },
         { name: "Còi khẩn cấp", priority: "critical", reason: "Kêu cứu khi bị mắc kẹt" },
+        { name: "Xe luôn đầy xăng ≥1/2 bình", priority: "high", reason: "Sẵn sàng sơ tán bất cứ lúc nào, tránh cây xăng đóng cửa" },
         { name: "Bạt nhựa lớn", priority: "high", reason: "Che mưa, tránh nước" },
         { name: "Thực phẩm khô đóng kín", priority: "high", reason: "Ăn uống" },
         { name: "Nước uống đủ dùng", priority: "high", reason: "Nước bị nhiễm bẩn" },
@@ -285,7 +288,15 @@ const mindsets = {
         { quote: "Luôn có Plan B, tốt nhất có cả Plan C", meaning: "Dự phòng nhiều kịch bản khác nhau" },
         { quote: "Chia sẻ kỹ năng, gấp đôi sức mạnh", meaning: "Học và dạy người thân" },
         { quote: "Bình thường luyện tập, khẩn cấp không loạn", meaning: "Thực hành thường xuyên để thuần thục" },
-        { quote: "Sau khủng hoảng, rút kinh nghiệm ngay", meaning: "Ghi chép và cải thiện cho lần sau" }
+        { quote: "Sau khủng hoảng, rút kinh nghiệm ngay", meaning: "Ghi chép và cải thiện cho lần sau" },
+        { quote: "Luôn báo lịch trình trước khi đi", meaning: "Cho gia đình biết đi đâu, về khi nào - Từ Aron Ralston 127 giờ mắc kẹt" },
+        { quote: "Chuẩn bị cho worst-case scenario", meaning: "Mang đủ đồ cho tình huống xấu nhất, đừng nghĩ 'chắc không sao'" },
+        { quote: "Sơ tán sớm khi có cảnh báo", meaning: "Đi sớm an toàn, đi muộn kẹt đường - Từ Hurricane Katrina" },
+        { quote: "Quỹ khẩn cấp 3-6 tháng chi phí là bắt buộc", meaning: "Mất việc, thiên tai, dịch bệnh - tiền mặt là cứu cánh - Từ COVID-19" },
+        { quote: "Di chuyển nhóm, không đi một mình", meaning: "Đi theo nhóm an toàn hơn đi một mình - Từ Thai cave rescue" },
+        { quote: "Ý chí sống quyết định tất cả", meaning: "Trong tình huống tuyệt vọng, ý chí sống là vũ khí mạnh nhất - Từ các vụ sinh tồn thực tế" },
+        { quote: "Lắng nghe người có kinh nghiệm", meaning: "Đừng tự ý hành động khi chưa biết rõ - Học từ chuyên gia" },
+        { quote: "Người biết bơi vẫn có thể chết đuối trong lũ", meaning: "Nước lũ dòng xiết khác hoàn toàn với hồ bơi - Đừng quá tự tin" }
     ],
 
     // Mindset theo từng tình huống
@@ -433,6 +444,7 @@ const skills = {
     home: [
         { name: "Sơ cứu cơ bản (CPR, Heimlich)", priority: "critical", reason: "Cứu mạng" },
         { name: "Đun nước bằng lửa/nắng", priority: "critical", reason: "Khử trùng nước" },
+        { name: "Lập kế hoạch sơ tán gia đình", priority: "high", reason: "Điểm tập kết, lộ trình, vai trò từng người khi khẩn cấp" },
         { name: "Tiết kiệm nước/Tái sử dụng", priority: "high", reason: "Cúp nước" },
         { name: "Nấu ăn không điện", priority: "high", reason: "Cúp điện" },
         { name: "Phân biệt thực phẩm hỏng", priority: "medium", reason: "Tránh ngộ độc" },
@@ -503,6 +515,7 @@ const skills = {
     flood: [
         { name: "Bơi cơ bản/Nổi trên nước", priority: "critical", reason: "Thoát lũ" },
         { name: "Sơ cứu người đuối nước", priority: "critical", reason: "Cứu người" },
+        { name: "Lập kế hoạch sơ tán cho người yếu thế", priority: "high", reason: "Người già, trẻ em, khuyết tật cần ưu tiên và hỗ trợ đặc biệt" },
         { name: "Leo lên cao/Mái nhà", priority: "high", reason: "Thoát nước dâng" },
         { name: "Buộc dây cứu hộ", priority: "high", reason: "Kéo người" },
         { name: "Tìm điểm cao an toàn", priority: "medium", reason: "Trú ẩn" },
