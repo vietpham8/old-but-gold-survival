@@ -5,20 +5,21 @@
 
 ## ✨ Tính năng
 
-### 🎯 Tình huống được hỗ trợ (13 tình huống)
+### 🎯 Tình huống được hỗ trợ (14 tình huống)
 1. **🚗 Xe hơi** - Xe hư, sa lầy, tai nạn, lạc đường
 2. **🏍️ Xe máy** - Xe hư giữa đường, tai nạn
 3. **🏠 Gia đình** - Cúp điện/nước, thiên tai
 4. **⛰️ Phượt/Rừng** - Lạc trong rừng, thời tiết xấu
 5. **💰 Tài chính** - Hết tiền mặt, không chuyển khoản
-6. **🌊 Lũ lụt** - Nước dâng, nhà ngập
-7. **🌪️ Bão/Mưa** - Bão đổ bộ, mưa dài ngày
-8. **⛰️ Sạt lở** - Đất đá sạt lở, đường bị chặn
-9. **⚔️ Chiến tranh** - Xung đột vũ trang
-10. **🏃 Sơ tán khẩn cấp** - Di chuyển đột ngột
-11. **🔥 Bạo loạn** - Biểu tình bạo lực
-12. **🌋 Động đất** - Rung lắc, sập nhà
-13. **🔥 Cháy nhà** - Hỏa hoạn, thoát hiểm
+6. **🔐 Khẩn cấp Tài chính** - Người quản lý tài chính mất khả năng, không truy cập tài sản/nợ
+7. **🌊 Lũ lụt** - Nước dâng, nhà ngập
+8. **🌪️ Bão/Mưa** - Bão đổ bộ, mưa dài ngày
+9. **⛰️ Sạt lở** - Đất đá sạt lở, đường bị chặn
+10. **⚔️ Chiến tranh** - Xung đột vũ trang
+11. **🏃 Sơ tán khẩn cấp** - Di chuyển đột ngột
+12. **🔥 Bạo loạn** - Biểu tình bạo lực
+13. **🌋 Động đất** - Rung lắc, sập nhà
+14. **🔥 Cháy nhà** - Hỏa hoạn, thoát hiểm
 
 ### 🛠️ Chức năng
 - ✅ **Phân loại rõ ràng**: Công cụ, Kỹ năng & Mindset

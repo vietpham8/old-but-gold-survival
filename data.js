@@ -5,6 +5,7 @@ const scenarios = {
     home: { name: "🏠 Gia đình", color: "green", desc: "Cúp điện/nước nhiều ngày, thiên tai, khẩn cấp y tế" },
     outdoor: { name: "⛰️ Phượt/Rừng", color: "orange", desc: "Lạc trong rừng, thời tiết xấu, động vật hoang dã" },
     financial: { name: "💰 Tài chính", color: "purple", desc: "Hết tiền mặt, không chuyển khoản, mất thẻ/ví" },
+    financialEmergency: { name: "🔐 Khẩn cấp Tài chính", color: "emerald", desc: "Người quản lý tài chính mất khả năng, không truy cập tài sản/nợ" },
     flood: { name: "🌊 Lũ lụt", color: "cyan", desc: "Nước dâng nhanh, nhà ngập, di chuyển vùng ngập" },
     storm: { name: "🌪️ Bão/Mưa", color: "indigo", desc: "Bão đổ bộ, mưa nhiều ngày liên tục, gió lớn" },
     landslide: { name: "⛰️ Sạt lở", color: "amber", desc: "Đất đá sạt lở, đường bị chặn, nguy cơ sập" },
@@ -112,6 +113,25 @@ const tools = {
         { name: "Sim điện thoại dự phòng (nhà mạng khác)", priority: "medium", reason: "Mạng chính lỗi" },
         { name: "Tài liệu vay mượn khẩn cấp", priority: "low", reason: "Cần tiền gấp" },
         { name: "Danh sách người có thể vay nợ", priority: "low", reason: "Tình huống cực khẩn" }
+    ],
+
+    financialEmergency: [
+        { name: "Sổ thông tin tài chính khẩn cấp (giấy + số)", priority: "critical", reason: "Tập trung mọi thông tin quan trọng" },
+        { name: "Photocopy giấy tờ ngân hàng, sổ tiết kiệm", priority: "critical", reason: "Truy cập tài khoản" },
+        { name: "Danh sách tài khoản + số dư ước tính", priority: "critical", reason: "Biết có bao nhiêu tiền" },
+        { name: "Danh sách khoản nợ đang có", priority: "critical", reason: "Biết phải trả ai, bao nhiêu" },
+        { name: "Giấy ủy quyền tài chính (có công chứng)", priority: "critical", reason: "Người khác truy cập hợp pháp" },
+        { name: "Két sắt/Túi tài liệu chống cháy", priority: "critical", reason: "Bảo vệ giấy tờ quan trọng" },
+        { name: "Danh sách người thụ hưởng bảo hiểm", priority: "high", reason: "Nhận tiền bảo hiểm" },
+        { name: "Hợp đồng bảo hiểm nhân thọ", priority: "high", reason: "Yêu cầu chi trả" },
+        { name: "Sổ đỏ/Sổ hồng (photocopy)", priority: "high", reason: "Chứng minh tài sản" },
+        { name: "Danh bạ luật sư/kế toán/ngân hàng", priority: "high", reason: "Liên hệ khẩn cấp" },
+        { name: "USB/Cloud backup thông tin tài chính", priority: "high", reason: "Dự phòng mất giấy tờ" },
+        { name: "Điện thoại dự phòng (SIM khác)", priority: "high", reason: "Liên lạc khi mất điện thoại chính" },
+        { name: "Hộp kim loại chống cháy/nước", priority: "medium", reason: "Bảo vệ tài liệu lâu dài" },
+        { name: "Di chúc (nếu có)", priority: "medium", reason: "Phân chia tài sản hợp pháp" },
+        { name: "Giấy chứng nhận doanh nghiệp", priority: "medium", reason: "Quản lý tài sản công ty" },
+        { name: "Hợp đồng cho vay (bản gốc)", priority: "medium", reason: "Thu hồi nợ" }
     ],
 
     flood: [
@@ -269,6 +289,17 @@ const mindsets = {
         { quote: "Nợ xấu giải quyết trước, nợ tốt từ từ tính", meaning: "Ưu tiên trả nợ lãi cao" }
     ],
 
+    financialEmergency: [
+        { quote: "Thông tin tài chính phải ít nhất 2 người biết", meaning: "Tránh rủi ro một người nắm hết" },
+        { quote: "Giấy tờ quan trọng lưu 3 nơi: Nhà + Két ngân hàng + Người tin cậy", meaning: "Dự phòng mất mát" },
+        { quote: "Cập nhật thông tin tài chính 6 tháng/lần", meaning: "Thông tin luôn chính xác" },
+        { quote: "Ủy quyền từ hôm nay, khẩn cấp không loạn", meaning: "Chuẩn bị trước khi cần" },
+        { quote: "Người chết mất 1 người, gia đình mù tài chính mất cả nhà", meaning: "Hậu quả nghiêm trọng nếu không chuẩn bị" },
+        { quote: "Sổ tiết kiệm, khoản nợ - phải ghi rõ ràng", meaning: "Danh sách đầy đủ, chi tiết" },
+        { quote: "Mật khẩu ngân hàng nên có hint, không để bí mật tuyệt đối", meaning: "Cân bằng bảo mật và truy cập khẩn cấp" },
+        { quote: "Bảo hiểm phải biết người thụ hưởng", meaning: "Tránh mất quyền lợi" }
+    ],
+
     flood: [
         { quote: "Nước lũ một tấc, xe hơi bỏ ngay", meaning: "15cm nước có thể cuốn xe" },
         { quote: "Leo cao trước, lo của sau", meaning: "Tính mạng quan trọng hơn tài sản" },
@@ -376,6 +407,20 @@ const skills = {
         { name: "Vay mượn khẩn cấp", priority: "medium", reason: "Cần tiền gấp" },
         { name: "Đánh giá giá trị vàng cơ bản", priority: "medium", reason: "Tránh bị lừa" },
         { name: "Phân chia tài sản di chuyển", priority: "medium", reason: "Không để hết một chỗ" }
+    ],
+
+    financialEmergency: [
+        { name: "Truy cập internet banking (ít nhất 1 người)", priority: "critical", reason: "Quản lý tài khoản online" },
+        { name: "Đọc sổ tiết kiệm/Giấy tờ ngân hàng", priority: "critical", reason: "Hiểu thông tin tài chính" },
+        { name: "Liên hệ ngân hàng/Luật sư khẩn cấp", priority: "critical", reason: "Tư vấn pháp lý nhanh" },
+        { name: "Xác định tài sản ưu tiên thanh toán", priority: "critical", reason: "Tránh mất tài sản quan trọng" },
+        { name: "Làm giấy ủy quyền tài chính", priority: "high", reason: "Hợp pháp hóa quyền truy cập" },
+        { name: "Quản lý tiền mặt khẩn cấp", priority: "high", reason: "Chi tiêu hợp lý" },
+        { name: "Xử lý khoản nợ đến hạn", priority: "high", reason: "Tránh lãi phạt" },
+        { name: "Liên lạc với công ty bảo hiểm", priority: "high", reason: "Yêu cầu chi trả" },
+        { name: "Đọc hợp đồng tài chính cơ bản", priority: "medium", reason: "Hiểu quyền lợi nghĩa vụ" },
+        { name: "Tính toán dòng tiền gia đình", priority: "medium", reason: "Lập kế hoạch tài chính" },
+        { name: "Phân loại tài sản/nợ ưu tiên", priority: "medium", reason: "Giải quyết đúng thứ tự" }
     ],
 
     flood: [
